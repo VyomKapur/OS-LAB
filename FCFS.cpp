@@ -12,8 +12,10 @@ int main(){
     int n;
     float awt=0;
     float ata=0;
-    cout<<"Enter number of processes to be run: ";
-    cin>>n;
+    do{   
+        cout<<"Enter number of processes to be run(less than 10): ";
+        cin>>n;
+    } while (n<10);
     for(int i=0; i<n; i++){
         cout<<"Enter burst time of process "<<i+1<<"(seconds): ";
         cin>>p[i].bt;
