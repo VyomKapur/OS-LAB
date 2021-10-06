@@ -6,6 +6,7 @@ struct process{
     int pid;
     int tat;
     int wt;
+    int priority;
 }p[10];
 
 int main(){
@@ -15,20 +16,22 @@ int main(){
     for(int i=0;i<n;i++){
         cout<<"Enter burst time of process "<<i+1<<": ";
         cin>>p[i].bt;
+        cout<<"Enter priority of process "<<i+1<<": ";
+        cin>>p[i].priority;
         p[i].pid = i;
     }
     for(int i=0; i<(n-1); i++)
     {
         for(int j=0; j<(n-i-1); j++)
         {
-            if(p[j].bt>p[j+1].bt)
+            if(p[j].priority>p[j+1].priority)
             {
                 struct process temp;
                 temp = p[j];
                 p[j] = p[j+1];
                 p[j+1] = temp;
             }
-            if(p[j].bt==p[j+1].bt){
+            if(p[j].priority==p[j+1].priority){
                 if(p[j].pid>p[j+1].pid){
                     struct process temp;
                     temp = p[j];
