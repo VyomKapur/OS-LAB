@@ -10,8 +10,6 @@ struct process
 }p[10];
 
 int main(){
-    int bt[10], at[10];
-    int is_completed[10];
     int n;
     cout<<"Enter number of processes: ";
     cin>>n;
