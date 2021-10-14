@@ -7,6 +7,7 @@ struct process{
     int pid;
     int tat;
     int wt;
+    int at;
 }p[10];
 
 int main(){
@@ -19,13 +20,15 @@ int main(){
     for (int i = 0; i < n; i++){
         cout<<"Enter burst time of process "<<i<<": ";
         cin>>p[i].bt;
+        cout<<"Enter arrival time of process "<<i<<": ";
+        cin>>p[i].at;
         p[i].pid = i;
         p[i].pbt = p[i].bt;
     }
     int ctr = 0;
     while(ctr!=n){
         for(int i=0;i<n;i++){
-            if(p[i].bt>0){
+            if(p[i].bt>0 && p[i].at<= time){
                 if(p[i].bt<q){
                     cout<<"Executing process with pid: "<<p[i].pid<<endl;
                     time+= p[i].bt;
